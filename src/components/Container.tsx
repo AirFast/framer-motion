@@ -3,5 +3,9 @@ type Props = {
 }
 
 export const Container: React.FC<Props> = ({ children }) => {
-  return <main className='container mx-auto px-4'>{children}</main>
+  return (
+    <div className='container mx-auto flex min-h-screen flex-col px-4'>
+      {children}
+    </div>
+  )
 }
