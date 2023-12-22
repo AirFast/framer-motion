@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import { Page } from './types'
@@ -9,7 +8,7 @@ type Props = {
 }
 
 export const Header: React.FC<Props> = ({ pages }) => {
-  const [active, setActive] = useState(pages[0].name)
+  const { pathname } = useLocation()
 
   return (
     <header className='my-8'>
@@ -18,14 +17,11 @@ export const Header: React.FC<Props> = ({ pages }) => {
           {pages.map(({ name, href }) => (
             <li key={name}>
               <Link to={href}>
-                <button
-                  className='relative px-5 pb-2 pt-1.5 duration-300 hover:text-slate-300'
-                  onClick={() => setActive(name)}
-                >
+                <button className='relative px-5 pb-2 pt-1.5 duration-300 hover:text-slate-300'>
                   <span className='relative z-10 mix-blend-exclusion'>
                     {name}
                   </span>
-                  {active === name && (
+                  {href === pathname && (
                     <motion.div
                       layoutId='active-item'
                       className='absolute inset-0 bg-white'
