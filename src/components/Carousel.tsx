@@ -19,12 +19,20 @@ const photos = [
 ]
 
 export const Carousel = () => {
-  const [width, setWidth] = useState(0)
   const carousel = useRef<HTMLDivElement>(null)
+  const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    if (carousel.current) {
+    const handleResize = () => {
+      if (!carousel.current) return
       setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 

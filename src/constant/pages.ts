@@ -16,4 +16,11 @@ export const pages = [
     menuType: [MenuType.Main],
     Component: lazy(() => import('../pages/SliderPage')),
   },
+  {
+    index: false,
+    name: 'Calendar',
+    href: '/calendar',
+    menuType: [MenuType.Main],
+    Component: lazy(() => import('../pages/CalendarPage')),
+  },
 ]
