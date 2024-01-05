@@ -3,8 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Container } from './Container'
 import { Header } from './Header'
 import { Footer } from './Footer'
-
-import { Page } from './types'
+import { Page } from '.'
 
 type Props = {
   pages: Page[]

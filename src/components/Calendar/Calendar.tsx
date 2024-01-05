@@ -10,16 +10,14 @@ import {
 } from 'date-fns'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { SelectedDates } from './types'
+import { Props, SelectedDates } from './types'
 import { days, getMonthDates } from './helpers'
 
-export const Calendar = () => {
+export const Calendar: React.FC<Props> = ({
+  selectedDates,
+  setSelectedDates,
+}) => {
   const [baseDate, setBaseDate] = useState<Date | null>(null)
-  const [selectedDates, setSelectedDates] = useState<SelectedDates>([
-    new Date(),
-    null,
-  ])
-
   const dates = getMonthDates(baseDate ?? selectedDates[0])
 
   const handleSubMonth = () => {
