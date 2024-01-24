@@ -125,7 +125,7 @@ export const Calendar: React.FC<Props> = ({
       </div>
 
       {defaultRangeDates?.length && (
-        <ul className='ml-20'>
+        <ul className='ml-10 pl-10 border-l border-slate-800'>
           {defaultRangeDates.map(({ label, value }) => (
             <li key={label}>
               <button
