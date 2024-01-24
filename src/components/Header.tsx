@@ -17,7 +17,13 @@ export const Header: React.FC<Props> = ({ pages }) => {
           {pages.map(({ name, href }) => (
             <li key={name}>
               <Link to={href}>
-                <button className='relative px-5 pb-2 pt-1.5 duration-300 hover:text-slate-300'>
+                <button
+                  className={`relative px-5 pb-2 pt-1.5 duration-300${
+                    href !== pathname
+                      ? ' hover:text-slate-500'
+                      : ' cursor-default'
+                  }`}
+                >
                   <span className='relative z-10 mix-blend-exclusion'>
                     {name}
                   </span>

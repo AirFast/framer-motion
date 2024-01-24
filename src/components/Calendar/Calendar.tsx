@@ -130,7 +130,11 @@ export const Calendar: React.FC<Props> = ({
             <li key={label}>
               <button
                 onClick={() => handleSetDefaultDates(value)}
-                className='relative px-4 py-2 font-semibold uppercase duration-200 hover:text-slate-300'
+                className={`relative px-4 py-2 font-semibold uppercase outline-none duration-200${
+                  selectedDates !== value
+                    ? ' hover:text-slate-500'
+                    : ' cursor-default'
+                }`}
               >
                 <span className='relative z-10 mix-blend-exclusion'>
                   {label}
