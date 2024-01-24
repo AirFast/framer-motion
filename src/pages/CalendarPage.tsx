@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Calendar, Section, SelectedDates } from '../components'
+import { defaultRangeDates } from '../components/Calendar'
 
 const CalendarPage = () => {
   const [selectedDates, setSelectedDates] = useState<SelectedDates>([
@@ -13,6 +14,7 @@ const CalendarPage = () => {
       <Calendar
         selectedDates={selectedDates}
         setSelectedDates={setSelectedDates}
+        defaultRangeDates={defaultRangeDates}
       />
     </Section>
   )
